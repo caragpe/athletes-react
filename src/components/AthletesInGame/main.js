@@ -5,6 +5,7 @@ import { Box , Button, CircularProgress } from '@material-ui/core';
 import { getAthletesByGame } from './api';
 import { useFetch } from '../../apiHelper';
 import type { GameType, AthleteInfoType } from '../../types';
+import { DO_NOT_FETCH_NOW } from '../../constants';
 
 type Props = {
     game: GameType
@@ -24,8 +25,13 @@ const AthletesInGame = (props: Props) => {
     function getAthletes() {
             return getAthletesByGame(game_id);
     }
-  
-    const { data, loading } = useFetch<Array<AthleteInfoType>>(getAthletes, game_id)
+
+    const { data, loading } = useFetch<Array<AthleteInfoType>>(
+        getAthletes, 
+        game_id === DO_NOT_FETCH_NOW 
+            ? DO_NOT_FETCH_NOW
+            : game_id
+        )
     
     if(loading) {
         return (

@@ -1,5 +1,7 @@
 // @flow
 
+export const DO_NOT_FETCH_NOW = 0;
+
 export const base_url = (): string => 'http://localhost:3000';
 
 export const games_url = ():string => {

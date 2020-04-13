@@ -1,6 +1,7 @@
 //@flow
 
 import { useState, useEffect } from 'react';
+import { DO_NOT_FETCH_NOW } from './constants';
 
 export const useFetch = <FetchData>(
         promiseFn: () => Promise<FetchData>,
@@ -13,13 +14,16 @@ export const useFetch = <FetchData>(
         const [data, setData] = useState<?FetchData>()
 
         useEffect(() => {
-            setLoading(true)
+            if(watchDog !== DO_NOT_FETCH_NOW) {
+                setLoading(true)
 
-        promiseFn()
-            .then((result) => setData(result))
-            .catch((err) => console.log(getResponseMessage(err)))
-            .finally(() => setLoading(false))
+                promiseFn()
+                    .then((result) => setData(result))
+                    .catch((err) => console.log(getResponseMessage(err)))
+                    .finally(() => setLoading(false))
+            }
         },[watchDog])
+
 
         return {
             loading,
