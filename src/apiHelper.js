@@ -1,31 +1,29 @@
 //@flow
 
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export const useFetch = <FetchData>(
-        promiseFn: () => Promise<FetchData>
+        promiseFn: () => Promise<FetchData>,
+        watchDog: ?number
     ): {
         data: ?FetchData,
-        loading: bool, 
-        error: ?Error
+        loading: bool,
     } => {
         const [loading, setLoading] = useState(false)
         const [data, setData] = useState<?FetchData>()
-        const [error, setError] = useState<?Error>()
 
         useEffect(() => {
             setLoading(true)
 
         promiseFn()
             .then((result) => setData(result))
-            .catch(setError)
+            .catch((err) => console.log(getResponseMessage(err)))
             .finally(() => setLoading(false))
-        },[])
+        },[watchDog])
 
         return {
             loading,
-            data,
-            error
+            data
         }
     }
 

@@ -1,33 +1,37 @@
 //@flow
 
-import React from 'react';
+import React, { Fragment} from 'react';
+import {CircularProgress}  from '@material-ui/core';
 import { listGames } from './api';
-import type { GameType } from './api';
 import { useFetch } from '../../apiHelper';
+import type { GameType } from '../../types';
+import AthletesInGame from '../AthletesInGame/main';
 
 const Games = () => {
-  
     function getListGames() {
         return listGames();
     }  
   
-    const { data, loading, error } = useFetch<Array<GameType>>(getListGames)
-    
-    return (
-        <div>
-        Listing Cities
-        <React.Fragment>
-        { !error && !loading && data && (
+    const { data, loading } = useFetch<Array<GameType>>(getListGames, null);
+
+    if(loading) {
+        return (
+            <div><CircularProgress /></div>
+        );
+    } else {
+        return (
             <div>
-                {data.map(item => { 
-                    return(item.city)
-                    } 
-                )}
-            </div>  
-        )}
-        </React.Fragment>
-        </div>
-    );
+            {data && (
+                <Fragment >
+                    {data.map((game) => {
+                            return <AthletesInGame key={game.game_id} game={game}/>
+                        })
+                    }
+                </Fragment >
+            )}
+            </div>
+        )
+    }
 }
 
 export default Games;

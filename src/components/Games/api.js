@@ -1,17 +1,13 @@
 //@flow
 
 import axios from 'axios';
-import { getResponseMessage, ok } from '../../apiHelper'
-
-export type GameType = {
-    game_id: number,
-    city: string,
-    year: number
-};
+import { getResponseMessage, ok } from '../../apiHelper';
+import type { GameType } from '../../types';
+import { games_url } from '../../constants';
 
 export function listGames(): Promise<Array<GameType>> {
     return axios
-        .get('http://localhost:3000/games')
+        .get(games_url())
         .then((result): Array<GameType> => {
             if (!ok(result)) throw result;
             return result.data
