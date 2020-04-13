@@ -16,3 +16,12 @@ export type AthleteInfoType = {
     height: number,
     photo_id: number
 };
+
+export type AthleteResultInfo = {
+    city: number,
+    year: number,
+    gold: number,
+    silver: number,
+    bronze: number,
+    fourths: number
+};

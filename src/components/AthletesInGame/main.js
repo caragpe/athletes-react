@@ -1,11 +1,12 @@
 //@flow
 
 import React, { useState, useEffect, Fragment } from 'react';
-import { Box , Button, CircularProgress } from '@material-ui/core';
+import { Box, CircularProgress } from '@material-ui/core';
 import { getAthletesByGame } from './api';
 import { useFetch } from '../../apiHelper';
 import type { GameType, AthleteInfoType } from '../../types';
 import { DO_NOT_FETCH_NOW } from '../../constants';
+import AthleteCard from '../AthleteCard/main';
 
 type Props = {
     game: GameType
@@ -50,7 +51,7 @@ const AthletesInGame = (props: Props) => {
                     <Fragment>
                         <Box display="flex" flexDirection="row" p={1} m={1} bgcolor="background.paper">
                             {
-                                data.map( athlete => <CarouselItem key={athlete.athlete_id} item={athlete} /> )
+                                data.map( athlete => <AthleteCard key={athlete.athlete_id} athlete={athlete} /> )
                             }
                         </Box>
                     </Fragment>
@@ -58,19 +59,6 @@ const AthletesInGame = (props: Props) => {
             </div>
         )
     }    
-}
-
-const CarouselItem = (props) => {
-    return (
-        <Box p={1} m={1} bgcolor="grey.300">
-            <h2>{props.item.name}</h2>
-            <p>{props.item.surname}</p>
-
-            <Button className="CheckButton">
-                Check it out!
-            </Button>
-        </Box>
-    )
 }
 
 export default AthletesInGame;
