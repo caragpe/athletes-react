@@ -15,3 +15,7 @@ export const athletes_by_game_url = (game_id: number):string => {
 export const athlete_info_url = (athlete_id: number):string => {
     return `${base_url()}/athletes/${athlete_id}/results`;
 }
+
+export const athlete_photo_url = (athlete_id: number):string => {
+    return `${base_url()}/athletes/${athlete_id}/photo`;
+}
