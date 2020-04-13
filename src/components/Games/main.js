@@ -16,11 +16,15 @@ const Games = () => {
 
     if(loading) {
         return (
-            <div><CircularProgress /></div>
+            <div>
+                <div>Olympic Athletes</div>
+                <div><CircularProgress /></div>
+            </div>
         );
     } else {
         return (
             <div>
+                <div style={{margin: 10 +'px'}}> Olympic Athletes</div>
             {data && (
                 <Fragment >
                     {data.map((game) => {

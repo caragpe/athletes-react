@@ -3,14 +3,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import App from './App';
 import Games from './components/Games/main';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <div>
-      <Games />
-    </div>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById('root')
 );

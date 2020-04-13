@@ -7,6 +7,7 @@ import { useFetch } from '../../apiHelper';
 import type { GameType, AthleteInfoType } from '../../types';
 import { DO_NOT_FETCH_NOW } from '../../constants';
 import AthleteCard from '../AthleteCard/main';
+import { Link } from 'react-router-dom';
 
 type Props = {
     game: GameType
@@ -36,7 +37,7 @@ const AthletesInGame = (props: Props) => {
     
     if(loading) {
         return (
-            <div>
+            <div style={{margin: 10 +'px'}}>
                 <div>{city} {year}</div>
                 <div>
                     <CircularProgress />
@@ -45,13 +46,19 @@ const AthletesInGame = (props: Props) => {
         )
     } else {
         return (
-            <div>
+            <div style={{margin: 10 +'px'}}>
                 <div>{city} {year}</div>
                 { data && (
                     <Fragment>
                         <Box display="flex" flexDirection="row" p={1} m={1} bgcolor="background.paper">
                             {
-                                data.map( athlete => <AthleteCard key={athlete.athlete_id} athlete={athlete} /> )
+                                data.map( athlete => {
+                                return (
+                                    <Link to={{pathname: "/athlete", query: `${athlete.athlete_id}`}} >
+                                        <AthleteCard key={athlete.athlete_id} athlete={athlete} />
+                                    </Link>
+                                    )
+                                })
                             }
                         </Box>
                     </Fragment>
