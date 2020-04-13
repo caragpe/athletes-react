@@ -2,17 +2,14 @@
 
 import React from 'react';
 import { Box , Button, CircularProgress } from '@material-ui/core';
-import { getAthleteResultInfo, getAthletePicture } from './api';
+import { getAthleteResultInfo } from './api';
 import { useFetch } from '../../apiHelper';
-import type { AthleteInfoType, AthleteResultInfo, AthletePicture } from '../../types';
+import type { AthleteInfoType, AthleteResultInfoType, AthletePictureType } from '../../types';
+import AthletePicture from '../AthletePhoto/main';
+
 
 type Props = {
     athlete: AthleteInfoType
-};
-
-type Picture = {
-    data: ?AthletePicture,
-    loading: bool
 };
 
 const AthleteCard = (props: Props) => {
@@ -22,16 +19,8 @@ const AthleteCard = (props: Props) => {
         return getAthleteResultInfo(athlete.athlete_id);
     };
 
-    function getAthletePhoto() {
-        return getAthletePicture(athlete.photo_id);
-    }
-
-    const { data, loading } = useFetch<Array<AthleteResultInfo>>(getAthleteResults, null);
-    const picture:Picture = useFetch<AthletePicture>(getAthletePhoto, null);
-
-    console.log(data);
-    console.log(picture);
-
+    const { data, loading } = useFetch<Array<AthleteResultInfoType>>(getAthleteResults, null);
+    
     return (
         <div>
             {loading && (
@@ -46,6 +35,7 @@ const AthleteCard = (props: Props) => {
                         <Button className="CheckButton">
                             View details
                         </Button>
+                        <AthletePicture athlete_photo_id={athlete.photo_id} />
                     </Box>
                 </div>
             )}

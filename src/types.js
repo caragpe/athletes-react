@@ -17,7 +17,7 @@ export type AthleteInfoType = {
     photo_id: number
 };
 
-export type AthleteResultInfo = {
+export type AthleteResultInfoType = {
     city: number,
     year: number,
     gold: number,
@@ -26,6 +26,6 @@ export type AthleteResultInfo = {
     fourths: number
 };
 
-export type AthletePicture = {
+export type AthletePictureType = {
     photo: string
 }
