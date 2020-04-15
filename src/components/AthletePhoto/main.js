@@ -17,7 +17,7 @@ const AthletePhoto = (props: Props) => {
         return getAthletePicture(athlete_photo_id);
     }
 
-    const { data, loading } = useFetch<AthletePictureType>(getAthletePhoto, null);
+    const { data, loading } = useFetch<string>(getAthletePhoto, null);
 
     return (
         <div>
@@ -26,7 +26,7 @@ const AthletePhoto = (props: Props) => {
             )}
             {!loading && data && (
                 <div>
-                    <img src={`data:image/jpeg;base64,${data.photo}`} alt={athlete_photo_id} />
+                    <img src={`data:image/jpeg;base64,${data}`} alt={athlete_photo_id} />
                 </div>
             )}
         </div>

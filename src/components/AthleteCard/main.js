@@ -6,6 +6,7 @@ import { getAthleteResultInfo } from './api';
 import { useFetch } from '../../apiHelper';
 import type { AthleteInfoType, AthleteResultInfoType, AthletePictureType } from '../../types';
 import AthletePicture from '../AthletePhoto/main';
+import './athletecard.css';
 
 
 type Props = {
@@ -27,15 +28,10 @@ const AthleteCard = (props: Props) => {
                 <div><CircularProgress /></div>
             )}
             {!loading && data && (
-                <div>
-                    <Box p={1} m={1} bgcolor="grey.300">
-                        <h2>{athlete.surname}</h2>
-                        <p>{athlete.name}</p>
-
-                        <Button className="CheckButton">
-                            View details
-                        </Button>
+                <div class='image'>
+                    <Box p={0.5} m={1} bgcolor="grey.300">
                         <AthletePicture athlete_photo_id={athlete.photo_id} />
+                        <h2><span>{athlete.name} {athlete.surname}</span></h2>
                     </Box>
                 </div>
             )}

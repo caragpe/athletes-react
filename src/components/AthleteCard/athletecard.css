@@ -1,0 +1,31 @@
+img{
+    max-width: 100px;
+    max-height: 100px;
+    display: flex;
+}
+
+.image { 
+    position: relative; 
+    width: 100%; /* for IE 6 */
+    min-width: 100px;
+    min-height: 100px;
+ }
+ 
+ h2 { 
+    position: absolute; 
+    top:55px; 
+    text-align: center;
+    /* left: 20px;  */
+    width: 100px;
+    height: 20px;
+ }
+
+
+  h2 span { 
+    color: white; 
+    font: bold 10px/20px Helvetica, Sans-Serif; 
+    letter-spacing: -1px;  
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2px; 
+ } 
