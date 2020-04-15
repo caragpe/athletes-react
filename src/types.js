@@ -25,7 +25,3 @@ export type AthleteResultInfoType = {
     bronze: number,
     fourths: number
 };
-
-export type AthletePictureType = {
-    photo: string
-}
