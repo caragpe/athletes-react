@@ -1,10 +1,10 @@
 // @flow
 
 import React from 'react';
-import { Box , Button, CircularProgress } from '@material-ui/core';
+import { Box, CircularProgress } from '@material-ui/core';
 import { getAthleteResultInfo } from './api';
 import { useFetch } from '../../apiHelper';
-import type { AthleteInfoType, AthleteResultInfoType, AthletePictureType } from '../../types';
+import type { AthleteInfoType, AthleteResultInfoType } from '../../types';
 import AthletePicture from '../AthletePhoto/main';
 import './athletecard.css';
 

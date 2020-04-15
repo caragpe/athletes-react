@@ -4,7 +4,6 @@ import React from 'react';
 import { CircularProgress } from '@material-ui/core';
 import { getAthletePicture } from './api';
 import { useFetch } from '../../apiHelper';
-import type { AthletePictureType } from '../../types';
 
 type Props = {
     athlete_photo_id: number
