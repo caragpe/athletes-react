@@ -5,10 +5,10 @@ import { getResponseMessage, ok } from '../../apiHelper';
 import type { AthleteResultInfoType } from '../../types';
 import { athlete_results_url } from '../../constants';
 
-export function getAthleteResultInfo(athlete_id: number): Promise<AthleteResultInfoType> {
+export function getAthleteResultInfo(athlete_id: number): Promise<Array<AthleteResultInfoType>> {
     return axios
         .get(athlete_results_url(athlete_id))
-        .then((result): AthleteResultInfoType => {
+        .then((result): Array<AthleteResultInfoType> => {
             if (!ok(result)) throw result;
             return result.data
         })

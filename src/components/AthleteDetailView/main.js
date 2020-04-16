@@ -36,7 +36,7 @@ const AtheleteDetailedView = (props: Props) => {
         return getAthleteResultInfo(athlete_id);
     };
 
-    const results = useFetch<AthleteResultInfoType>(getAthleteResults, null);
+    const results = useFetch<Array<AthleteResultInfoType>>(getAthleteResults, null);
 
     return (
         <Fragment>
@@ -77,9 +77,24 @@ const AtheleteDetailedView = (props: Props) => {
                 </div>
             </div>
         </div>
-        <div>
-            <div>
-                Bio
+        <div className='medalcontainer'>
+            <div className='spacing'>
+                <strong>Medals</strong>
+            </div>
+            <Fragment>
+                {results && results.data && results.data.map((game: AthleteResultInfoType) =>
+                    <GameResult 
+                        city={game.city}
+                        gold={game.gold}
+                        silver={game.silver}
+                        bronze={game.bronze}
+                    /> 
+                )}
+            </Fragment>
+        </div>
+        <div className='biocontainer'>
+            <div className='spacing'>
+                <strong>Bio</strong>
             </div>
             <div className='bio'>
                 <ReactMarkdown source={athlete.bio} excapeHtml={false}/>
@@ -89,4 +104,28 @@ const AtheleteDetailedView = (props: Props) => {
     )
 }
 
+type GameResultType = {
+    city: string,
+    gold: number,
+    silver: number,
+    bronze: number
+};
+
+const GameResult = (props: GameResultType) => {
+    const { city, gold, silver, bronze } = props;
+    return (
+        <div className='game-medal__container'>
+            <div className='city'>- <strong>{city}</strong></div>
+            {gold > 0 && (
+                <div className='medal'>G {props.gold}</div>
+            )}
+            {silver > 0 && (
+                <div className='medal'>S {props.silver}</div>
+            )}
+            {bronze > 0 && (
+                <div className='medal'>B {props.bronze}</div>
+            )}
+        </div>
+    );
+}
 export default AtheleteDetailedView;

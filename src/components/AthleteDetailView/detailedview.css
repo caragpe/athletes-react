@@ -32,6 +32,34 @@
    margin: 5px;
  }
 
+ .biocontainer {
+   margin-left: 10px;
+ }
+
  .bio {
    position: relative;
+ }
+
+ .spacing {
+   margin: 10px 0px 10px 0px;
+ }
+
+ .medalcontainer {
+   margin-left: 10px;
+ }
+
+ .game-medal__container {
+   margin-left: 10px 0px 0px 10px;
+   display: flex;
+   flex-direction: row;
+ }
+
+ .city {
+   width: 200px;
+  flex: 0 1 auto;
+ }
+
+ .medal {
+   margin-right: 20px;
+   flex: 0 1 auto;
  }

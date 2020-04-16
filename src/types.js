@@ -18,7 +18,7 @@ export type AthleteInfoType = {
 };
 
 export type AthleteResultInfoType = {
-    city: number,
+    city: string,
     year: number,
     gold: number,
     silver: number,
