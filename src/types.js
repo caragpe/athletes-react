@@ -6,7 +6,7 @@ export type GameType = {
     year: number
 };
 
-export type AthleteInfoType = {
+export type AthleteType = {
     athlete_id: number,
     name: string,
     surname: string,
@@ -17,7 +17,7 @@ export type AthleteInfoType = {
     photo_id: number
 };
 
-export type AthleteResultInfoType = {
+export type AthleteResultsType = {
     city: string,
     year: number,
     gold: number,

@@ -3,9 +3,9 @@
 import React, {Fragment} from 'react';
 import { Link } from 'react-router-dom';
 import { useFetch } from '../../apiHelper';
-import { getAthleteResultInfo } from './api';
+import { getAthleteResultsInfo } from '../api';
 import { Thumbnail, EmptyThumbnail } from '../Thumbnail/main';
-import type { AthleteInfoType, AthleteResultInfoType } from '../../types';
+import type { AthleteType, AthleteResultsType } from '../../types';
 import ReactMarkdown from "react-markdown";
 import back_arrow from '../../back_arrow.svg';
 import './detailedview.css';
@@ -22,7 +22,7 @@ type MatchType = {
 };
 
 type Props = {
-    athlete: AthleteInfoType,
+    athlete: AthleteType,
     match: MatchType,
     picture: string
 };
@@ -33,10 +33,10 @@ const AtheleteDetailedView = (props: Props) => {
     const picture = props.picture;
 
     function getAthleteResults() {
-        return getAthleteResultInfo(athlete_id);
+        return getAthleteResultsInfo(athlete_id);
     };
 
-    const results = useFetch<Array<AthleteResultInfoType>>(getAthleteResults, null);
+    const results = useFetch<Array<AthleteResultsType>>(getAthleteResults, null);
 
     return (
         <Fragment>
@@ -82,7 +82,7 @@ const AtheleteDetailedView = (props: Props) => {
                 <strong>Medals</strong>
             </div>
             <Fragment>
-                {results && results.data && results.data.map((game: AthleteResultInfoType) =>
+                {results && results.data && results.data.map((game: AthleteResultsType) =>
                     <GameResult 
                         city={game.city}
                         gold={game.gold}

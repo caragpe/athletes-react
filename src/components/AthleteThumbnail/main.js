@@ -3,22 +3,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Box, CircularProgress } from '@material-ui/core';
-import { getAthleteResultInfo, getAthletePicture } from './api';
+import { getAthleteResultsInfo, getAthletePicture } from '../api';
 import { useFetch } from '../../apiHelper';
-import type { AthleteInfoType, AthleteResultInfoType } from '../../types';
+import type { AthleteType, AthleteResultsType } from '../../types';
 import { Thumbnail, EmptyThumbnail } from '../Thumbnail/main';
 import './athletethumbnail.css';
 
 
 type Props = {
-    athlete: AthleteInfoType
+    athlete: AthleteType
 };
 
 const AthleteThumbnail = (props: Props) => {
     const { athlete } = props;
 
     function getAthleteResults() {
-        return getAthleteResultInfo(athlete.athlete_id);
+        return getAthleteResultsInfo(athlete.athlete_id);
     };
 
     function getAthletePhoto() {
@@ -26,8 +26,8 @@ const AthleteThumbnail = (props: Props) => {
     }
 
     const photo = useFetch<string>(getAthletePhoto, null);
-    const { data, loading } = useFetch<Array<AthleteResultInfoType>>(getAthleteResults, null);
-    
+    const { data, loading } = useFetch<Array<AthleteResultsType>>(getAthleteResults, null);
+
     return (
         <div>
             {loading && (

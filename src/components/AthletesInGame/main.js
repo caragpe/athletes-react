@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect, Fragment } from 'react';
 import { Box, CircularProgress } from '@material-ui/core';
-import { getAthletesByGame } from './api';
+import { getAthletesByGame } from '../api';
 import { useFetch } from '../../apiHelper';
-import type { GameType, AthleteInfoType } from '../../types';
+import type { GameType, AthleteType } from '../../types';
 import { DO_NOT_FETCH_NOW } from '../../constants';
 import AthleteThumbnail from '../AthleteThumbnail/main';
 
@@ -27,7 +27,7 @@ const AthletesInGame = (props: Props) => {
             return getAthletesByGame(game_id);
     }
 
-    const { data, loading } = useFetch<Array<AthleteInfoType>>(
+    const { data, loading } = useFetch<Array<AthleteType>>(
         getAthletes, 
         game_id === DO_NOT_FETCH_NOW 
             ? DO_NOT_FETCH_NOW
@@ -64,5 +64,7 @@ const AthletesInGame = (props: Props) => {
         )
     }    
 }
+
+
 
 export default AthletesInGame;
