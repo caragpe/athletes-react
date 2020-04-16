@@ -6,8 +6,7 @@ import { getAthletesByGame } from './api';
 import { useFetch } from '../../apiHelper';
 import type { GameType, AthleteInfoType } from '../../types';
 import { DO_NOT_FETCH_NOW } from '../../constants';
-import AthleteCard from '../AthleteCard/main';
-import { Link } from 'react-router-dom';
+import AthleteThumbnail from '../AthleteThumbnail/main';
 
 type Props = {
     game: GameType
@@ -54,9 +53,7 @@ const AthletesInGame = (props: Props) => {
                             {
                                 data.map( athlete => {
                                 return (
-                                    <Link to={{pathname: "/athlete", query: `${athlete.athlete_id}`}} >
-                                        <AthleteCard key={athlete.athlete_id} athlete={athlete} />
-                                    </Link>
+                                    <AthleteThumbnail key={athlete.athlete_id} athlete={athlete} />
                                     )
                                 })
                             }
