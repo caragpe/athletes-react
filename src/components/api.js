@@ -4,10 +4,10 @@ import axios from 'axios';
 import { getResponseMessage, ok } from '../apiHelper'
 import type { GameType, AthleteType, AthleteResultsType  } from '../types'; 
 import { 
-    games_url,
-    athlete_info_url, 
+    games_url, 
     athlete_photo_url ,
-    athletes_by_game_url
+    athletes_by_game_url,
+    athlete_results_url
 } from '../constants';
 
 export function getAthletePicture(athlete_id: number): Promise<string> {
@@ -38,7 +38,7 @@ export function listGames(): Promise<Array<GameType>> {
 
 export function getAthleteResultsInfo(athlete_id: number): Promise<Array<AthleteResultsType>> {
     return axios
-        .get(athlete_info_url(athlete_id))
+        .get(athlete_results_url(athlete_id))
         .then((result): Array<AthleteResultsType> => {
             if (!ok(result)) throw result;
             return result.data
