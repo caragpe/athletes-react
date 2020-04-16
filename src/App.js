@@ -10,7 +10,7 @@ const App = () => {
         <main>
             <Switch>
               <Route path="/" render={ () => <Games /> } exact /> 
-              <Route path="/athlete/:id" render={
+              <Route path="/athlete" render={
                   (props) => <AthleteDetailView 
                                 match={props.match} 
                                 athlete={props.location.athlete_info}
