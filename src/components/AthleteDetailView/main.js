@@ -47,7 +47,7 @@ const AtheleteDetailedView = (props: Props) => {
                 </Link>
             </div>
             <div className='containerbox'>
-                <span>{(athlete && athlete.name) || 'n/a'} {(athlete && athlete.surname) || 'n/a'}</span> 
+                <span>{(athlete && athlete.name) || 'n/a'} {(athlete && athlete.surname) || 'n/a'} details</span> 
             </div>
         </div>
         <div className='container'>
