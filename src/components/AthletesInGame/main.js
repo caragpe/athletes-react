@@ -65,6 +65,4 @@ const AthletesInGame = (props: Props) => {
     }    
 }
 
-
-
 export default AthletesInGame;
