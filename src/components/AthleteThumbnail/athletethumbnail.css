@@ -4,14 +4,14 @@ img{
     display: flex;
 }
 
-.image { 
+.ahtlete-link__image { 
     position: relative; 
     width: 100%; /* for IE 6 */
     min-width: 100px;
     min-height: 100px;
  }
  
- h2 { 
+ .ahtlete-link__image h2 { 
     position: absolute; 
     top:55px; 
     text-align: center;
@@ -21,7 +21,7 @@ img{
  }
 
 
-  h2 span { 
+  .ahtlete-link__image h2 span { 
     color: white; 
     font: bold 10px/20px Helvetica, Sans-Serif; 
     letter-spacing: -1px;  

@@ -13,6 +13,10 @@ export const athletes_by_game_url = (game_id: number):string => {
 };
 
 export const athlete_info_url = (athlete_id: number):string => {
+    return `${base_url()}/athletes/${athlete_id}`;
+}
+
+export const athlete_results_url = (athlete_id: number):string => {
     return `${base_url()}/athletes/${athlete_id}/results`;
 }
 

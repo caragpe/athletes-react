@@ -34,7 +34,7 @@ const AthleteThumbnail = (props: Props) => {
                 <div><CircularProgress /></div>
             )}
             {!loading && data && (
-                <div className='image'>
+                <div className='ahtlete-link__image'>
                     <Link to={{
                         pathname: `/athlete/${athlete.athlete_id}`,
                         query: `${athlete.athlete_id}`,

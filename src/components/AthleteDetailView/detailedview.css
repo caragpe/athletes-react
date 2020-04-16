@@ -1,0 +1,37 @@
+.arrowback {
+    min-width: 40px;
+    min-height: 40px;
+    display: flex;
+}
+
+.container {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+ }
+
+ .containerbox {
+    flex-grow: 0;
+    text-align: end;
+    display: inline-flex;
+
+ }
+
+ .containerbox span {
+    min-height: 40px;
+ }
+
+ .boxincolumn {
+   flex-direction: column;
+   position: relative;
+   margin-left: 10px;
+ }
+
+ .rowelement {
+   margin: 5px;
+ }
+
+ .bio {
+   position: relative;
+ }
