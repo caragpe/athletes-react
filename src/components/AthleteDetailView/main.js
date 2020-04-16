@@ -7,7 +7,7 @@ import { getAthleteResultsInfo } from '../api';
 import { Thumbnail, EmptyThumbnail } from '../Thumbnail/main';
 import type { AthleteType, AthleteResultsType } from '../../types';
 import ReactMarkdown from "react-markdown";
-import back_arrow from '../../back_arrow.svg';
+import back_arrow from '../../assets/images/back_arrow.svg';
 import './detailedview.css';
 
 type MatchIdType = {

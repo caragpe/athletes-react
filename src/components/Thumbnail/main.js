@@ -2,7 +2,7 @@
 
 import React from 'react';	
 import { CircularProgress } from '@material-ui/core';	
-import portrait from '../../portrait.svg';	
+import portrait from '../../assets/images/portrait.svg';	
 import './thumbnail.css';	
 
 type Props = {	
