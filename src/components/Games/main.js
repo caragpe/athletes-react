@@ -2,7 +2,7 @@
 
 import React, { Fragment} from 'react';	
 import {CircularProgress}  from '@material-ui/core';	
-import { listGames } from './api';	
+import { listGames } from '../api';	
 import { useFetch } from '../../apiHelper';	
 import type { GameType } from '../../types';	
 import AthletesInGame from '../AthletesInGame/main';	
