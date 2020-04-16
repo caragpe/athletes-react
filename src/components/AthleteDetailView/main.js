@@ -2,14 +2,13 @@
 
 import React, {Fragment} from 'react';
 import { Link } from 'react-router-dom';
-import { CircularProgress } from '@material-ui/core';
-import back_arrow from '../../back_arrow.svg';
+import { useFetch } from '../../apiHelper';
+import { getAthleteResultInfo } from './api';
 import { Thumbnail, EmptyThumbnail } from '../Thumbnail/main';
-// import { getAthleteResultInfo } from './api';
 import type { AthleteInfoType, AthleteResultInfoType } from '../../types';
 import ReactMarkdown from "react-markdown";
+import back_arrow from '../../back_arrow.svg';
 import './detailedview.css';
-
 
 type MatchIdType = {
     id: number
@@ -31,11 +30,13 @@ type Props = {
 const AtheleteDetailedView = (props: Props) => {
     const athlete_id = props.match.params.id;
     const athlete = props.athlete;
-    const isExact = props.match.isExact;
     const picture = props.picture;
 
+    function getAthleteResults() {
+        return getAthleteResultInfo(athlete_id);
+    };
 
-    console.log(props);
+    const results = useFetch<AthleteResultInfoType>(getAthleteResults, null);
 
     return (
         <Fragment>
@@ -51,10 +52,15 @@ const AtheleteDetailedView = (props: Props) => {
         </div>
         <div className='container'>
             <div className='containerbox'>
-                <Thumbnail 
-                    picture={picture} 
-                    is_loading={false} 
-                />
+                {picture.length !== 0 && (
+                    <Thumbnail 
+                        picture={picture} 
+                        is_loading={false} 
+                    />
+                )}
+                {picture.length === 0 && (
+                    <EmptyThumbnail />
+                )}
             </div>
             <div className='boxincolumn'>
                 <div className='rowelement'>

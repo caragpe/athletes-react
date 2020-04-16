@@ -3,6 +3,7 @@
 import React from 'react';
 import { CircularProgress } from '@material-ui/core';
 import portrait from '../../portrait.svg';
+import './thumbnail.css';
 
 type Props = {
     picture: ?string,
@@ -29,7 +30,7 @@ export const Thumbnail = (props: Props) => {
 export const EmptyThumbnail = () => {
     return (
         <div>
-            <img src={portrait} alt="n/a" />
+            <img className={'no_image'} src={portrait} alt="n/a" />
         </div>
     )
 }

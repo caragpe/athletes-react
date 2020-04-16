@@ -38,7 +38,7 @@ const AthleteThumbnail = (props: Props) => {
                     <Link to={{
                         pathname: `/athlete/${athlete.athlete_id}`,
                         query: `${athlete.athlete_id}`,
-                        picture: `${(photo && photo.data) || ''}`,
+                        picture: `${(photo && photo.data) || '' }`,
                         athlete_info: athlete
                     }} >
                         <Box p={0.5} m={1} bgcolor="grey.300">
