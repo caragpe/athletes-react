@@ -19,7 +19,7 @@ export const useFetch = <FetchData>(
 
                 promiseFn()
                     .then((result) => setData(result))
-                    .catch((err) => console.log(getResponseMessage(err)))
+                    .catch((err) => getResponseMessage(err))
                     .finally(() => setLoading(false))
             }
         },[watchDog])
