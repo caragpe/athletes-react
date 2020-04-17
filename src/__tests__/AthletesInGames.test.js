@@ -1,12 +1,13 @@
 import React from 'react';
-import { render, fireEvent} from '@testing-library/react';
+import { render, findAllByTestId } from '@testing-library/react';
 import AthletesInGame from '../components/AthletesInGame/main';
+import * as fetch from '../apiHelper';
 
 describe('AthletesInGame component', () => {
-    xit('test', () => {
-        expect(1).toEqual(1);
-    });
-    it('should display the loading component', () => {
+    it('should display the header with the city and year when data loaded', async () => {
+        jest.spyOn(fetch, 'useFetch').mockImplementation(() => 
+            ({loading: false})
+        );
         const props = {
             game: {
                 city: 'Tokyo',
@@ -14,9 +15,24 @@ describe('AthletesInGame component', () => {
                 year: 2020
             }
         }
-        const { queryByTestId } = render(<AthletesInGame {...props} />);
-        expect(
-            queryByTestId(document.documentElement, 'game_city_year')
-        ).toBeInTheDocument();
-    })
+        const { container } = render(<AthletesInGame {...props} />);
+        const game_city_year = await findAllByTestId(container, 'game_city_year');
+        expect(game_city_year.length).toBe(1)    
+    });
+    it('should display the loading spinner while loading data', async () => {
+        jest.spyOn(fetch, 'useFetch').mockImplementation(() => 
+            ({loading: true})
+        );
+
+        const props = {
+            game: {
+                city: 'Tokyo',
+                game_id: 1,
+                year: 2020
+            }
+        }
+        const { container } = render(<AthletesInGame {...props} />);
+        const game_city_year = await findAllByTestId(container, 'loading');
+        expect(game_city_year.length).toBe(1)    
+    });
 });
