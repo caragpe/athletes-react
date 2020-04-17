@@ -37,7 +37,7 @@ const AthletesInGame = (props: Props) => {
     if(loading) {
         return (
             <div style={{margin: 10 +'px'}}>
-                <div>{city} {year}</div>
+                <div data-qa="game_city_year">{city} {year}</div>
                 <div>
                     <CircularProgress />
                 </div>
