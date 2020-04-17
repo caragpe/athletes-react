@@ -75,6 +75,7 @@ const AtheleteDetailedView = (props: Props) => {
             <Fragment>
                 {results && results.data && results.data.map((game: AthleteResultsType) =>
                     <GameResult 
+                        key={game.city}
                         city={game.city}
                         gold={game.gold}
                         silver={game.silver}
