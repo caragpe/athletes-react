@@ -1,6 +1,6 @@
 //@flow
 
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, CircularProgress } from '@material-ui/core';
 import { getAthletesByGame } from '../api';
 import { useFetch } from '../../apiHelper';
@@ -11,6 +11,7 @@ import AthleteThumbnail from '../AthleteThumbnail/main';
 type Props = {
     game: GameType
 };
+
 
 const AthletesInGame = (props: Props) => {
     const [game_id, setGameId] = useState(0);
@@ -37,7 +38,7 @@ const AthletesInGame = (props: Props) => {
     if(loading) {
         return (
             <div style={{margin: 10 +'px'}}>
-                <div data-qa="game_city_year">{city} {year}</div>
+                <div data-testid="loading">{city} {year}</div>
                 <div>
                     <CircularProgress />
                 </div>
@@ -46,19 +47,22 @@ const AthletesInGame = (props: Props) => {
     } else {
         return (
             <div style={{margin: 10 +'px'}}>
-                <div>{city} {year}</div>
+                <div data-testid="game_city_year">{city} {year}</div>
                 { data && (
-                    <Fragment>
-                        <Box display="flex" flexDirection="row" p={1} m={1} bgcolor="background.paper">
-                            {
-                                data.map( athlete => {
-                                return (
-                                    <AthleteThumbnail key={athlete.athlete_id} athlete={athlete} />
-                                    )
-                                })
-                            }
-                        </Box>
-                    </Fragment>
+                    <Box display="flex" flexDirection="row" p={1} m={1} bgcolor="background.paper">
+                        {
+                            data.map( athlete => {
+                            return (
+                                <div key={athlete.athlete_id}  data-testid={`athlete_th_${athlete.athlete_id}`} >
+                                <AthleteThumbnail 
+                                    key={athlete.athlete_id} 
+                                    athlete={athlete} 
+                                />
+                                </div>
+                                )
+                            })
+                        }
+                    </Box>
                 )}
             </div>
         )

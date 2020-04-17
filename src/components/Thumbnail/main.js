@@ -23,7 +23,7 @@ export const Thumbnail = (props: Props) => {
                 <div>	
                     <img 
                         src={`data:image/jpeg;base64,${picture}`} 
-                        data-qa={`thumbnail_athlete_${athlete_id}`}
+                        data-testid={`thumbnail_athlete_${athlete_id}`}
                         alt="" 
                     />	
                 </div>	
@@ -43,7 +43,7 @@ export const EmptyThumbnail = (props: EmptyThumbnailProps) => {
             <img 
                 className={'no_image'} 
                 src={portrait} 
-                data-qa={`empty_thumbnail_athlete_${athlete_id}`}
+                data-testid={`empty_thumbnail_athlete_${athlete_id}`}
                 alt="n/a" 
             />	
         </div>	
