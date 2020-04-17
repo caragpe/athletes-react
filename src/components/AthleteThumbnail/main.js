@@ -34,22 +34,25 @@ const AthleteThumbnail = (props: Props) => {
                 <div><CircularProgress /></div>
             )}
             {!loading && data && (
-                <div className='ahtlete-link__image'>
+                <div data-qa={`container_athlete_thumbnail_${athlete.athlete_id}`} className='ahtlete-link__image'>
                     <Link to={{
-                        pathname: `/athlete/${athlete.athlete_id}`,
-                        query: `${athlete.athlete_id}`,
-                        picture: `${(photo && photo.data) || '' }`,
-                        athlete_info: athlete
-                    }} >
-                        <Box p={0.5} m={1} bgcolor="grey.300">
+                            pathname: `athlete/${athlete.athlete_id}`,
+                            query: `${athlete.athlete_id}`,
+                            picture: `${(photo && photo.data) || '' }`,
+                            athlete_info: athlete
+                        }}
+                        data-qa={`link_athlete_thumbnail_${athlete.athlete_id}`} 
+                    >
+                        <Box p={0.5} m={1} bgcolor="grey.300" data-qa={`athlete_box_thumbnail_${athlete.athlete_id}`}>
                             {photo && (
                                 <Thumbnail 
                                     picture={photo.data} 
-                                    is_loading={photo.loading} 
+                                    is_loading={photo.loading}
+                                    athlete_id={athlete.athlete_id}
                                 />
                             )}
                             {!photo && (
-                                <EmptyThumbnail />
+                                <EmptyThumbnail athlete_id={athlete.athlete_id}/>
                             )}
                             <h2><span>{athlete.name} {athlete.surname}</span></h2>
                         </Box>

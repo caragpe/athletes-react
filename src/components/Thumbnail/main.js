@@ -2,16 +2,17 @@
 
 import React from 'react';	
 import { CircularProgress } from '@material-ui/core';	
-import portrait from '../../portrait.svg';	
+import portrait from '../../assets/images/portrait.svg';	
 import './thumbnail.css';	
 
 type Props = {	
     picture: ?string,	
-    is_loading: boolean	
+    is_loading: boolean,
+    athlete_id: number
 };	
 
 export const Thumbnail = (props: Props) => {	
-    const { picture, is_loading } = props;	
+    const { picture, is_loading, athlete_id } = props;	
 
     return (	
         <div>	
@@ -20,17 +21,31 @@ export const Thumbnail = (props: Props) => {
             )}	
             {!is_loading && picture && (	
                 <div>	
-                    <img src={`data:image/jpeg;base64,${picture}`} alt="" />	
+                    <img 
+                        src={`data:image/jpeg;base64,${picture}`} 
+                        data-qa={`thumbnail_athlete_${athlete_id}`}
+                        alt="" 
+                    />	
                 </div>	
             )}	
         </div>	
     )	
 }	
 
-export const EmptyThumbnail = () => {	
+type EmptyThumbnailProps = {
+    athlete_id: number
+};
+
+export const EmptyThumbnail = (props: EmptyThumbnailProps) => {	
+    const { athlete_id } = props;
     return (	
         <div>	
-            <img className={'no_image'} src={portrait} alt="n/a" />	
+            <img 
+                className={'no_image'} 
+                src={portrait} 
+                data-qa={`empty_thumbnail_athlete_${athlete_id}`}
+                alt="n/a" 
+            />	
         </div>	
     )	
 }
