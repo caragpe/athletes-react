@@ -12,7 +12,10 @@ const Games = () => {
         return listGames();	
     }  	
 
-    const { data, loading } = useFetch<Array<GameType>>(getListGames, null);	
+    const { data, loading } = useFetch<Array<GameType>>(getListGames, null);
+    if (data) {
+        data.sort((game_a, game_b) => game_b.year - game_a.year)
+    }	
 
     if(loading) {	
         return (	
