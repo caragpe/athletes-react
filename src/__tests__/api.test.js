@@ -233,45 +233,34 @@ describe('API tests', () => {
     describe('Get Athletes Photos', () => {
         const photo_id = 15;
         it('Returns no results for photo id', () => {
-            jest.spyOn(axios, 'get').mockImplementation(
-                () => Promise.resolve(successResponse(''))
-            );
-
-            return api.getAthletePicture(photo_id).then(response => {
-                expect(response).toStrictEqual('');
-                // expect(axios.get).toHaveBeenCalledWith(
-                //     athlete_photo_url(photo_id)
-                // );
-            });
-        });
-        it('Returns one thumbnail', () => {
-            const photo_id = 15;
-            const string_photo = '/9j/4AAQSkZJRgABAQAAAQABAAD/4gxYSUNDX1BS';
-        
-            jest.spyOn(axios, 'get').mockImplementation(
-                () => Promise.resolve(successResponse(ArrayBuffer))
-            );
-
-            return api.getAthletePicture(photo_id).then(response => {
-                expect(response).toStrictEqual(ArrayBuffer);
-                // expect(axios.get).toHaveBeenCalledWith(
-                //     athlete_photo_url(photo_id)
-                // );
-            });
-        });
-        it('Returns an error', () => {
-            const photo_id = 15;
             const errorMsg = 'default.error_occurred';
             jest.spyOn(axios, 'get').mockImplementation(
                 () => Promise.reject(errorMsg)
             );
 
-            return api.getAthletePicture().catch(e => {
+            return api.getAthletePicture(photo_id).catch((e) => {
                 expect(e).toBeInstanceOf(Error);
                 expect(e).toStrictEqual(Error(errorMsg));
-                // expect(axios.get).toHaveBeenCalledWith(
-                //     athlete_photo_url(photo_id)
-                // );
+                expect(axios.get).toHaveBeenCalledWith(
+                    athlete_photo_url(photo_id), 
+                    {"responseType": "arraybuffer"}
+                );
+            });
+        });
+        xit('Returns one thumbnail', () => {
+            const photo_id = 15;
+            const string_photo = '/9j/4AAQSkZJRgABAQAAAQABAAD/4gxYSUNDX1BS';
+            const response = new Buffer(string_photo, 'binary').toString('base64');
+        
+            jest.spyOn(axios, 'get').mockImplementation(
+                () => Promise.resolve(response)
+            );
+
+            return api.getAthletePicture(photo_id).then(response => {
+                expect(response).toStrictEqual(ArrayBuffer);
+                expect(axios.get).toHaveBeenCalledWith(
+                    athlete_photo_url(photo_id)
+                );
             });
         });
     });
