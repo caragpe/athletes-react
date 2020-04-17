@@ -19,7 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "e2e": "yarn run cypress open"
+    "e2e": "yarn run cypress open",
+    "ci-e2e": "yarn run cypress run --headless --spec 'cypress/integration/olympics/**/*'"
   },
   "eslintConfig": {
     "extends": "react-app"
