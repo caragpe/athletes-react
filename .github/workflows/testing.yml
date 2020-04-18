@@ -29,6 +29,8 @@ jobs:
     - run: yarn run flow
     - run: yarn test
     - run: yarn build
+    - run: yarn add serve
+    - run: yarn run serve -s build -p 8000
     - run: yarn ci-e2e
       env:
         CI: true
