@@ -28,6 +28,7 @@ jobs:
     - run: yarn install
     - run: yarn run flow
     - run: yarn test
+    - run: yarn upgrade && yarn add yarn
     - run: yarn build
     - run: yarn add serve
     - run: yarn run serve -s build -p 8000
