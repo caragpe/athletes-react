@@ -1,0 +1,12 @@
+[
+    {
+        "athlete_id": "14",
+        "name": "Robert",
+        "surname": "Bartko",
+        "bio": "**Robert Bartko** (born 23 December 1975 in [Potsdam](https://en.wikipedia.org/wiki/Potsdam \"Potsdam\")) is a [road bicycle](https://en.wikipedia.org/wiki/Road_bicycle_racing \"Road bicycle racing\") and [track cyclist](https://en.wikipedia.org/wiki/Track_cyclist \"Track cyclist\") from [Germany](https://en.wikipedia.org/wiki/Germany \"Germany\"), who was born in the former [East Germany](https://en.wikipedia.org/wiki/East_Germany \"East Germany\"). He won two gold medals at the [2000 Summer Olympics](https://en.wikipedia.org/wiki/2000_Summer_Olympics \"2000 Summer Olympics\") in [Sydney, Australia](https://en.wikipedia.org/wiki/Sydney,_Australia \"Sydney, Australia\"): in the individual and in the team pursuit. He competed in races for professional riders from 2001 to 2014.",
+        "dateOfBirth": "23/12/1975",
+        "weight": 80,
+        "height": 186,
+        "photo_id": 14
+    }
+]

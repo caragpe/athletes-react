@@ -76,6 +76,7 @@ const AtheleteDetailedView = (props: Props) => {
                 {results && results.data && results.data.map((game: AthleteResultsType) =>
                     <GameResult 
                         key={game.city}
+                        year={game.year}
                         city={game.city}
                         gold={game.gold}
                         silver={game.silver}
@@ -98,16 +99,17 @@ const AtheleteDetailedView = (props: Props) => {
 
 type GameResultType = {
     city: string,
+    year: number,
     gold: number,
     silver: number,
     bronze: number
 };
 
 const GameResult = (props: GameResultType) => {
-    const { city, gold, silver, bronze } = props;
+    const { city, year, gold, silver, bronze } = props;
     return (
         <div className='game-medal__container'>
-            <div className='city' data-testid="medal_container_by_city">- <strong>{city}</strong></div>
+            <div className='city' data-testid={`medal_container_${year}`}>- <strong>{city}</strong></div>
             {gold > 0 && (
                 <div className='medal' data-testid="gold_count">G {props.gold}</div>
             )}

@@ -22,6 +22,7 @@ export const useFetch = <FetchData>(
                     .catch((err) => getResponseMessage(err))
                     .finally(() => setLoading(false))
             }
+        // eslint-disable-next-line
         },[watchDog])
 
 

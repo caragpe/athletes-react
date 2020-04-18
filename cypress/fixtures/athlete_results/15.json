@@ -1,0 +1,30 @@
+[
+    {
+        "city": "Sydney",
+        "year": 2000,
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+    },
+    {
+        "city": "Atlanta",
+        "year": 1996,
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+    },
+    {
+        "city": "Barcelona",
+        "year": 1992,
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+    },
+    {
+        "city": "Seoul",
+        "year": 1988,
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+    }
+]

@@ -1,0 +1,23 @@
+[
+    {
+        "city": "Rio de Janeiro",
+        "year": 2016,
+        "gold": 3,
+        "silver": 0,
+        "bronze": 0
+    },
+    {
+        "city": "London",
+        "year": 2012,
+        "gold": 3,
+        "silver": 0,
+        "bronze": 0
+    },
+    {
+        "city": "Beijing",
+        "year": 2008,
+        "gold": 2,
+        "silver": 0,
+        "bronze": 0
+    }
+]
