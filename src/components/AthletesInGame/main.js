@@ -46,7 +46,7 @@ const AthletesInGame = (props: Props) => {
         )
     } else {
         return (
-            <div style={{margin: 10 +'px'}} data-testid={`games_${year}`}>
+            <div style={{margin: 10 +'px'}} data-testid={`games_${year ? year : ''}`}>
                 <div data-testid="game_city_year">{city} {year}</div>
                 { data && (
                     <Box display="flex" flexDirection="row" p={1} m={1} bgcolor="background.paper">

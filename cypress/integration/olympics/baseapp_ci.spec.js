@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe("Testing App with CI config", () => {
   it("should load the main page of the app", () => {
     cy.visit("/")
