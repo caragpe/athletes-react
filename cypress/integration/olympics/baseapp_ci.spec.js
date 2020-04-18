@@ -1,4 +1,4 @@
-describe("Open Cypress", () => {
+describe("Testing App with CI config", () => {
   it("should load the main page of the app", () => {
     cy.visit("/")
     cy.contains("Olympic Athletes")
