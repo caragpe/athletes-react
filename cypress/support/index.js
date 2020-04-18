@@ -14,12 +14,16 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import "./commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
+before(() => { 
+  cy.runningInLocalOrCI()
+})
+
 beforeEach(() => {
-  cy.log('Setting up routes automatically')
+  cy.log("Setting up routes automatically")
   cy.setAppRoutes()
 })

@@ -20,7 +20,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "e2e": "yarn run cypress open",
-    "ci-e2e": "yarn run cypress run --headless --spec 'cypress/integration/olympics/**/*'"
+    "ci-e2e": "yarn run cypress run --env ci_pipeline=true --headless --spec 'cypress/integration/olympics/**/*'",
+    "cli-e2e": "yarn run cypress run --env ci_pipeline=false --headless --spec 'cypress/integration/olympics/**/*'"
   },
   "eslintConfig": {
     "extends": "react-app"

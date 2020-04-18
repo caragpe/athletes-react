@@ -15,7 +15,7 @@ describe("Open Cypress", () => {
     })
   })
 
-  it("should navigate to the detailed view of an athlete", () => {
+  xit("should navigate to the detailed view of an athlete", () => {
     const athlete_id = 4
     const game_id = "games_2016"
     const games_with_medals = ["2016", "2012"]
@@ -42,7 +42,7 @@ describe("Open Cypress", () => {
       })
   })
 
-  it("should be able to navigate back to the main page", () => {
+  xit("should be able to navigate back to the main page", () => {
     const athlete_id = 4
     const game_id = "games_2016"
     
