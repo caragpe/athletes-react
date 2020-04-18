@@ -28,7 +28,7 @@ jobs:
     - run: yarn install
     - run: yarn run flow
     - run: yarn test
-    - run: yarn start
+    - run: yarn start &
     - run: yarn ci-e2e
       env:
         CI: true
