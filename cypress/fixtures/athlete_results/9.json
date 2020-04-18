@@ -1,0 +1,16 @@
+[
+    {
+        "city": "Seoul",
+        "year": 1988,
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+    },
+    {
+        "city": "Los Angeles",
+        "year": 1984,
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+    }
+]
