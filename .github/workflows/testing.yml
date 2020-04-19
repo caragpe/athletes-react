@@ -25,12 +25,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: rm -rf node_modules yarn.lock
-    - run: yarn install
-    - run: yarn run flow
-    - run: yarn test
-    - run: yarn build
-    - run: yarn add serve
-    - run: yarn run serve -s build -p 8000 &
-    - run: yarn ci-e2e
+    - run: cd ..
+    - run: git clone git@github.com:caragpe/athletes-node.git
       env:
         CI: true
