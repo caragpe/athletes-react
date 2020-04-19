@@ -36,7 +36,14 @@ Cypress.Commands.add("runningInLocalOrCI", () => {
 })
 
 Cypress.Commands.add("setBackendEnpointAliases", () => {
-  cy.request('http://127.0.0.1:3000/athletes', 'GET').as('getAtheletes')
+  cy.request(
+    Cypress.env('backendUrl') + '/athletes',
+    'GET'
+    ).as('getAtheletes')
+  cy.request(
+    Cypress.env('backendUrl') + '/athletes/' + Cypress.env('backendTest_athlete_id'),
+    'GET'
+    ).as('getAtheleteById')
 })
 
 // setAppRoutes is automatically setup
