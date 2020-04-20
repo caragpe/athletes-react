@@ -3,7 +3,7 @@
   "env": {
     "baseUrl": "http://127.0.0.1:8000",
     "backendUrl": "http://127.0.0.1:3000",
-    "backendTest_athlete_id": 1,
+    "backendTest_athlete_id": 3,
     "games": [
       { "city": "Tokyo", "year": 2020 },
       { "city": "London", "year": 2012 },

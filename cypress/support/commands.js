@@ -101,7 +101,11 @@ Cypress.Commands.add("setBackendEnpointAliases", () => {
   cy.request(
     Cypress.env('backendUrl') + '/athletes/' + Cypress.env('backendTest_athlete_id'),
     'GET'
-    ).as('getAtheleteById')
+    ).as('getAthleteById')
+  cy.request(
+    Cypress.env('backendUrl') + '/athletes/' + Cypress.env('backendTest_athlete_id') + '/photo',
+    'GET'
+    ).as('getAthletePhotoByAthleteId')
 })
 
 //
