@@ -151,5 +151,5 @@ Cypress.Commands.add("runningInLocalOrCI", () => {
   cy.log(current_env)
   cy.log('To use the CI pipeline mode, add the following param:')
   cy.log('--env ci_pipeline=true')
-  cy.long('In this mode, server response in mocked!!')
-})d
+  cy.log('In this mode, server response in mocked!!')
+})
