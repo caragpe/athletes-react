@@ -23,7 +23,7 @@
     "backend": "yarn run cypress open --env backend_tests=true --config ignoreTestFiles=!**/*/backend/**/*",
     "ci-e2e": "yarn run cypress run --env ci_pipeline=true --headless --spec 'cypress/integration/olympics/e2e/baseapp_ci.spec.js'",
     "cli-e2e": "yarn run cypress run --env ci_pipeline=false --headless --spec 'cypress/integration/olympics/e2e/baseapp_local.spec.js'",
-    "ci-backend": "yarn run cypress run --env ci_pipeline=true --env backend_tests=true --headless --spec 'cypress/integration/olympics/backend/backend.spec.js'"
+    "ci-backend": "yarn run cypress run --env backend_tests=true --headless --spec 'cypress/integration/olympics/backend/backend.spec.js'"
   },
   "eslintConfig": {
     "extends": "react-app"
