@@ -91,24 +91,6 @@ Cypress.Commands.add("setAppRoutes", () => {
 })
 
 //
-// In case we are just testing the backend API, some
-// endpoints are defined by aliases to be DRY and concise
-Cypress.Commands.add("setBackendEnpointAliases", () => {
-  cy.request(
-    Cypress.env('backendUrl') + '/athletes',
-    'GET'
-    ).as('getAtheletes')
-  cy.request(
-    Cypress.env('backendUrl') + '/athletes/' + Cypress.env('backendTest_athlete_id'),
-    'GET'
-    ).as('getAthleteById')
-  cy.request(
-    Cypress.env('backendUrl') + '/athletes/' + Cypress.env('backendTest_athlete_id') + '/photo',
-    'GET'
-    ).as('getAthletePhotoByAthleteId')
-})
-
-//
 // Just for informative purposes. It displays some information
 // at the top of the test run if we are launching Cypress UI
 Cypress.Commands.add("runningInLocalOrCI", () => {
