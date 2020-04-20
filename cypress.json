@@ -1,22 +1,47 @@
 {
+  "baseUrl": "http://127.0.0.1:8000",
+  "env": {
     "baseUrl": "http://127.0.0.1:8000",
-    "env": {
-        "baseUrl": "http://127.0.0.1:8000",
-        "backendUrl": "http://127.0.0.1:3000",
-        "backendTest_athlete_id": 1,
-        "games": [
-            { "city": "Tokyo", "year": 2020 },
-            { "city": "London", "year": 2012 },
-            { "city": "Pyeongchang", "year": 2018 },
-            { "city": "Vancouver", "year": 2010 },
-            { "city": "Beijing", "year": 2008 },
-            { "city": "Salt Lake City", "year": 2002 },
-            { "city": "Sydney", "year": 2000 },
-            { "city": "Nagano", "year": 1998 },
-            { "city": "Atlanta", "year": 1996 },
-            { "city": "Barcelona", "year": 1992 },
-            { "city": "Seoul", "year": 1988 },
-            { "city": "Los Angeles", "year": 1984 }
-          ]
-    }
+    "backendUrl": "http://127.0.0.1:3000",
+    "backendTest_athlete_id": 1,
+    "games": [
+      { "city": "Tokyo", "year": 2020 },
+      { "city": "London", "year": 2012 },
+      { "city": "Pyeongchang", "year": 2018 },
+      { "city": "Vancouver", "year": 2010 },
+      { "city": "Beijing", "year": 2008 },
+      { "city": "Salt Lake City", "year": 2002 },
+      { "city": "Sydney", "year": 2000 },
+      { "city": "Nagano", "year": 1998 },
+      { "city": "Atlanta", "year": 1996 },
+      { "city": "Barcelona", "year": 1992 },
+      { "city": "Seoul", "year": 1988 },
+      { "city": "Los Angeles", "year": 1984 }
+    ],
+   "games_in_test_mode": [
+      { "city": "City_1", "year": 2020 },
+      { "city": "City_2", "year": 2018 },
+      { "city": "City_3", "year": 2016 },
+      { "city": "City_4", "year": 2012 },
+      { "city": "City_5", "year": 2010 }
+    ],
+    "athletes_in_test_mode": [
+      { "athlete_id": 1, "name": "Athlete_1_name", "surname": "Athlete_1_surname", "bio":"Bio_1 Bio here", "date_of_birth":	"01/01/1991", "weight":	61, "height":	161, "photo_id":	1 },
+      { "athlete_id": 2, "name": "Athlete_2_name", "surname": "Athlete_2_surname", "bio":"Bio_2 Bio here", "date_of_birth":	"02/02/1992", "weight":	62, "height":	162, "photo_id":	2 },
+      { "athlete_id": 3, "name": "Athlete_3 name", "surname": "Athlete_3 surname", "bio":"Bio_3 Bio here", "date_of_birth":	"03/03/1993", "weight":	63, "height":	163, "photo_id":	3 },
+      { "athlete_id": 4, "name": "Athlete 4 name", "surname": "Athlete 4 surname", "bio":"Bio_4 Bio here", "date_of_birth":	"04/04/1994", "weight":	64, "height":	164, "photo_id":	4 }
+    ],
+    "athlete_results_in_test_mode": [
+      { "athlete_id": 1, "game_year": 2012, "game_id": 4,	"gold": 1,	"silver": 1,	"bronze": 1 },
+      { "athlete_id": 1, "game_year":	2010, "game_id": 5,	"gold": 0,	"silver": 1,	"bronze": 2 },
+      { "athlete_id": 1, "game_year":	2018, "game_id": 2,	"gold": 0,	"silver": 0,	"bronze": 1 },
+      { "athlete_id": 1, "game_year":	2016, "game_id": 3,	"gold": 0,	"silver": 0,	"bronze": 1 },
+      { "athlete_id": 2, "game_year":	2020, "game_id": 1,	"gold": 0,	"silver": 1,	"bronze": 0 },
+      { "athlete_id": 2, "game_year":	2016, "game_id": 3,	"gold": 1,	"silver": 0,	"bronze": 0 },
+      { "athlete_id": 2, "game_year":	2018, "game_id": 2,	"gold": 0,	"silver": 0,	"bronze": 1 },
+      { "athlete_id": 3, "game_year":	2018, "game_id": 2,	"gold": 0,	"silver": 1,	"bronze": 0 },
+      { "athlete_id": 4, "game_year":	2016, "game_id": 3,	"gold": 1,	"silver": 1,	"bronze": 0 },
+      { "athlete_id": 4, "game_year":	2018, "game_id": 2,	"gold": 1,	"silver": 0,	"bronze": 0 }
+    ]
+  }
 }
