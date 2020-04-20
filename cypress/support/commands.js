@@ -59,42 +59,6 @@ Cypress.Commands.add("verifyGameTitleIsPresent", (city, year) => {
 })
 
 //
-// New methods to load know information when testing the frontend
-// with the backend app in TEST mode
-//
-Cypress.Commands.add("getAthletesInDevelopementEnv", () => {
-  return [
-    { "athlete_id": 1, "name": "Athlete_1_name", "surname": "Athlete_1_surname", "bio":"Bio_1 Bio here", "date_of_birth":	"01/01/1991", "weight":	61, "height":	161, "photo_id":	1 },
-    { "athlete_id": 2, "name": "Athlete_2_name", "surname": "Athlete_2_surname", "bio":"Bio_2 Bio here", "date_of_birth":	"02/02/1992", "weight":	62, "height":	162, "photo_id":	2 },
-    { "athlete_id": 3, "name": "Athlete_3 name", "surname": "Athlete_3 surname", "bio":"Bio_3 Bio here", "date_of_birth":	"03/03/1993", "weight":	63, "height":	163, "photo_id":	3 },
-    { "athlete_id": 4, "name": "Athlete 4 name", "surname": "Athlete 4 surname", "bio":"Bio_4 Bio here", "date_of_birth":	"04/04/1994", "weight":	64, "height":	164, "photo_id":	4 }
-  ]
-})
-Cypress.Commands.add("getAthleteResultsInDevelopementEnv", () => {
-  return [
-    { "athlete_id": 1,	"game_id": 4,	"gold": 1,	"silver": 1,	"bronze": 1 },
-    { "athlete_id": 1,	"game_id": 5,	"gold": 0,	"silver": 1,	"bronze": 2 },
-    { "athlete_id": 1,	"game_id": 2,	"gold": 0,	"silver": 0,	"bronze": 1 },
-    { "athlete_id": 1,	"game_id": 3,	"gold": 0,	"silver": 0,	"bronze": 1 },
-    { "athlete_id": 2,	"game_id": 1,	"gold": 0,	"silver": 1,	"bronze": 0 },
-    { "athlete_id": 2,	"game_id": 3,	"gold": 1,	"silver": 0,	"bronze": 0 },
-    { "athlete_id": 2,	"game_id": 2,	"gold": 0,	"silver": 0,	"bronze": 1 },
-    { "athlete_id": 3,	"game_id": 2,	"gold": 0,	"silver": 1,	"bronze": 0 },
-    { "athlete_id": 4,	"game_id": 3,	"gold": 1,	"silver": 1,	"bronze": 0 },
-    { "athlete_id": 4,	"game_id": 2,	"gold": 1,	"silver": 0,	"bronze": 0 }
-  ]
-})
-Cypress.Commands.add("getGamesInDevelopementEnv", () => {
-  return [
-    { "game_id": 1,	"city": "City_1",	"year": 2020 },
-    { "game_id": 2,	"city": "City_2",	"year": 2018 },
-    { "game_id": 3,	"city": "City_3",	"year": 2016 },
-    { "game_id": 4,	"city": "City_4",	"year": 2012 },
-    { "game_id": 5,	"city": "City_5",	"year": 2010 }
-  ]
-})
-
-//
 // The following command allows simulates a response from the server
 // by loading a fixture in case Cypress.env("ci_pipeline") is set
 Cypress.Commands.add("setAthleteResultRouteById", (athlete_id) => {
