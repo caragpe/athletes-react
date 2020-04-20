@@ -25,6 +25,8 @@ before(() => {
 })
 
 beforeEach(() => {
-  cy.log("Setting up routes automatically")
-  cy.setAppRoutes()
+  if (Cypress.env("backend_tests") !== true) {
+    cy.log("Setting up routes automatically")
+    cy.setAppRoutes()
+  }
 })
